@@ -24,5 +24,7 @@ dieButton.addEventListener("click", () => {
 
 let rollButton = document.getElementById("rollDiceBtn");
 rollButton.addEventListener("click", () => {
-  allDice.forEach(this.roll());
+  allDice.forEach(function(item) {
+    item.roll();
+  });
 });
