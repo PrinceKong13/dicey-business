@@ -9,7 +9,7 @@ class Die {
     this.die.classList.add("die");
     this.roll();
     allDice.push(this);
-    this.die.addEventListener("click", this.roll())
+    this.die.addEventListener("click", () => this.roll())
   }
 
   roll() {
