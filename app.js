@@ -1,5 +1,6 @@
 let dieDiv = document.getElementById("dice-container");
 let allDice = [];
+let diceSum = 0;
 class Die {
   constructor() {
     this.value = 0;
@@ -8,6 +9,7 @@ class Die {
     this.die.classList.add("die");
     this.roll();
     allDice.push(this);
+    this.die.addEventListener("click", this.roll())
   }
 
   roll() {
@@ -28,3 +30,13 @@ rollButton.addEventListener("click", () => {
     item.roll();
   });
 });
+
+let addButton = document.getElementById("addButton");
+addButton.addEventListener("click", () => {
+  diceSum = 0;
+  allDice.forEach(function(item) {
+    diceSum += item.value;
+  })
+  let diceSumDiv = document.getElementById("diceSum");
+  diceSumDiv.textContent = `Total: ${diceSum}`;
+})
