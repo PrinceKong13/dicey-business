@@ -13,8 +13,8 @@ class Die {
     this.die.classList.add("die");
     this.roll();
     allDice.push(this);
-    this.die.addEventListener("click", () => this.roll())
-    this.die.addEventListener("dblclick", () => this.remove() )
+    this.die.addEventListener("click", () => this.roll());
+    this.die.addEventListener("dblclick", () => this.remove());
   }
 
   roll() {
@@ -25,11 +25,11 @@ class Die {
   remove() {
     let targetDie = this;
     event.target.remove();
-    allDice.forEach(function(item, index) {
-      if(item === targetDie) {
-       deletedDice = allDice.splice(index, 1);
+    allDice.forEach(function (item, index) {
+      if (item === targetDie) {
+        deletedDice = allDice.splice(index, 1);
       }
-    })
+    });
   }
 }
 
@@ -43,7 +43,7 @@ dieButton.addEventListener("click", () => {
 //Adds a button that rolls all the dice
 let rollButton = document.getElementById("rollDiceBtn");
 rollButton.addEventListener("click", () => {
-  allDice.forEach(function(item) {
+  allDice.forEach(function (item) {
     item.roll();
   });
 });
@@ -52,9 +52,9 @@ rollButton.addEventListener("click", () => {
 let addButton = document.getElementById("addButton");
 addButton.addEventListener("click", () => {
   diceSum = 0;
-  allDice.forEach(function(item) {
+  allDice.forEach(function (item) {
     diceSum += item.value;
-  })
+  });
   let diceSumDiv = document.getElementById("diceSum");
   diceSumDiv.textContent = `Total: ${diceSum}`;
-})
+});
